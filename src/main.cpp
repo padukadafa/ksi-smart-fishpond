@@ -1,20 +1,14 @@
 #include <Arduino.h>
-#include <Servo.h>
-
-Servo myservo;
-int pos = 0;
-// put function declarations here:
-
+#include "sensor.hpp"
+Sensor sensor;
 void setup()
 {
-  myservo.attach(14);
-  // put your setup code here, to run once:
+  Serial.begin(9600);
+  sensor.init();
 }
 
 void loop()
 {
-  myservo.write(-180);
-  delay(1000);
-  myservo.write(180);
+  Serial.println(sensor.readSuhu());
   delay(1000);
 }
