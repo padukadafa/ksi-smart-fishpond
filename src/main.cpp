@@ -1,14 +1,13 @@
 #include <Arduino.h>
-#include "sensor.hpp"
-Sensor sensor;
+#include <SoftwareSerial.h>
+#include <app.h>
+App app;
 void setup()
 {
-  Serial.begin(9600);
-  sensor.init();
+  app.init();
 }
 
 void loop()
 {
-  Serial.println(sensor.readSuhu());
-  delay(1000);
+  app.app_loop();
 }
